@@ -1,0 +1,161 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 75%;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .menu-mobile {
+    position: relative;
+    width: 40px;
+    height: 16px;
+    z-index: 4;
+    span {
+      position: absolute;
+      height: 2px;
+      background-color: #5f61c1;
+      right: 0;
+      transition: ease 300ms;
+      width: 35px;
+      border-radius: 80px;
+    }
+    span:nth-child(1) {
+      top: 0;
+    }
+    span:nth-child(2) {
+      top: 8px;
+    }
+    span:nth-child(3) {
+      top: 16px;
+    }
+  }
+  .link {
+    text-decoration: none;
+    color: #fcf8f8;
+  }
+}
+#close {
+  span {
+    background-color: #fcf8f8;
+  }
+  span:nth-child(1) {
+    top: 8px;
+    transform: rotate(45deg);
+    width: 30px;
+  }
+  span:nth-child(2) {
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+    width: 30px;
+  }
+}
+#showMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 2.5rem;
+  font-size: 1.2rem;
+  padding: 25% 0 2rem 10%;
+  position: absolute;
+  background: #2e2e2e;
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  animation: menuAnimation ease 300ms;
+  z-index: 2;
+  opacity: 0.98;
+  position: fixed;
+}
+
+@keyframes menuAnimation {
+  0% {
+    width: 0vw;
+  }
+  99% {
+    width: 49vw;
+  }
+  100% {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .hide-desktop {
+    display: none;
+  }
+  .nav {
+      padding-bottom: 3rem;
+    .navmenu {
+      display: flex;
+      font-size: 1.3rem;
+      align-items: center;
+      gap: 2rem;
+      font-weight: 400;
+    }
+
+    .link {
+      color: #3b3b3b;
+      opacity: .8;
+      transition: ease 200ms;
+      position: relative;
+      &:hover{
+        opacity: 1;
+        &::after{
+          content: "";
+          width: 100%;
+          height: 1px;
+          background: #3b3b3b;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-radius: 100px;
+          animation: slideIn 200ms;
+          opacity: .8;
+        }
+      }
+    }
+  }
+  #showMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 0;
+    position: relative;
+    background: none;
+    height: auto;
+    width: auto;
+    animation: none;
+    z-index:1;
+    opacity: 0.98;
+  }
+}
+@media only screen and (min-width:1401px){
+    .nav{
+        .navmenu{
+            gap:2rem;
+        }
+    }
+}
+
+@keyframes slideIn{
+  0%{
+    width: 0;
+  }
+  99%{
+    width: 99%;
+  }
+  100%{
+    width: 100%;
+  }
+}
